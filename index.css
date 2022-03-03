@@ -38,6 +38,10 @@ a {
     box-shadow: 4px 4px rgb(75, 75, 75);
 }
 
+.button:hover {
+    filter: brightness();
+}
+
 /* IDs */
 
 #header {
@@ -58,7 +62,7 @@ a {
     margin: 0%;
 }
 
-#mathBox {
+#display {
     background-color: white;
     color: #1A281F;
     width: 40%;
