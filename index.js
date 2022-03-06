@@ -27,6 +27,9 @@ const display = document.getElementById('display');
 
 display.textContent = '0';
 
+let val1 = 0;
+let val2 = 0;
+
 // functions
 
 function add(a,b) {
@@ -53,25 +56,36 @@ function del() {
     switch(display.textContent) {
         case '0':
             display.textContent = '0';
+            break;
         case '1':
-            display.textContent = '0'; 
+            display.textContent = '0';
+            break;
         case '2':
             display.textContent = '0';
+            break;
         case '3':
             display.textContent = '0';
+            break;
         case '4':
             display.textContent = '0';
+            break;
         case '5':
             display.textContent = '0';
+            break;
         case '6':
             display.textContent = '0';
+            break;
         case '7':
             display.textContent = '0';
+            break;
         case '8':
             display.textContent = '0';
+            break;
         case '9':
             display.textContent = '0';
-        // add code for "other" case if it exists
+            break;
+        default:
+            display.textContent = display.textContent.slice(0, -1);
     }
 }
 
@@ -83,7 +97,7 @@ function decimal() {
     else {
         display.textContent += '.';
     }
-};
+}
 
 function zero() {
     if (display.textContent === '0') {
@@ -118,7 +132,8 @@ function three() {
     }
     else {
         display.textContent += '3';
-    }}
+    }
+}
 
 function four() {
     if (display.textContent === '0') {
@@ -126,7 +141,8 @@ function four() {
     }
     else {
         display.textContent += '4';
-    }}
+    }
+}
 
 function five() {
     if (display.textContent === '0') {
@@ -134,7 +150,8 @@ function five() {
     }
     else {
         display.textContent += '5';
-    }}
+    }
+}
 
 function six() {
     if (display.textContent === '0') {
@@ -142,7 +159,8 @@ function six() {
     }
     else {
         display.textContent += '6';
-    }}
+    }
+}
 
 function seven() {
     if (display.textContent === '0') {
@@ -150,7 +168,8 @@ function seven() {
     }
     else {
         display.textContent += '7';
-    }}
+    }
+}
 
 function eight() {
     if (display.textContent === '0') {
@@ -158,7 +177,8 @@ function eight() {
     }
     else {
         display.textContent += '8';
-    }}
+    }
+}
 
 function nine() {
     if (display.textContent === '0') {
@@ -166,7 +186,8 @@ function nine() {
     }
     else {
         display.textContent += '9';
-    }}
+    }
+}
 
 // listeners
 
