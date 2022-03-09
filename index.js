@@ -25,6 +25,8 @@ const divideButton = document.getElementById('divideButton');
 const enterButton = document.getElementById('enterButton');
 const display = document.getElementById('display');
 
+const operators = ['+', '-', '*', '/'];
+
 display.textContent = '1.75 / 2';
 
 // functions
@@ -208,7 +210,48 @@ function operate(){
             }  
             break;
     }
-    display.textContent = "" + parseFloat(result.toFixed(10));
+    result = "" + parseFloat(result.toFixed(10));
+    return result;
+}
+
+function putPlus() {
+    if (display.textContent.includes('+' || '-' || '*' || '/')){
+        enterButton.click();
+        display.textContent += " + ";
+    }
+    else {
+        display.textContent += " + ";
+    }
+}
+
+function putMinus() {
+    if (display.textContent.includes('+' || '-' || '*' || '/')){
+        enterButton.click();
+        display.textContent += " - ";
+    }
+    else {
+        display.textContent += " - ";
+    }
+}
+
+function putSlash() {
+    if (display.textContent.includes('+' || '-' || '*' || '/')){
+        enterButton.click();
+        display.textContent += " / ";
+    }
+    else {
+        display.textContent += " / ";
+    }
+}
+
+function putStar() {
+    if (display.textContent.includes('+' || '-' || '*' || '/')){
+        enterButton.click();
+        display.textContent += " * ";
+    }
+    else {
+        display.textContent += " * ";
+    }
 }
 
 // listeners
@@ -228,4 +271,11 @@ sevenButton.addEventListener('click', seven);
 eightButton.addEventListener('click', eight);
 nineButton.addEventListener('click', nine);
 
-enterButton.addEventListener('click', operate);
+enterButton.addEventListener('click', function(){
+    display.textContent = operate();
+});
+
+addButton.addEventListener('click', putPlus);
+subtractButton.addEventListener('click', putMinus);
+multiplyButton.addEventListener('click', putStar);
+divideButton.addEventListener('click', putSlash);
