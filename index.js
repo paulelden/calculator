@@ -189,6 +189,25 @@ function nine() {
     }
 }
 
+function operate(){
+    let result;
+    let arr = display.textContent.split(" ");
+    switch (arr[1]) {
+        case '+':
+            result = add(parseFloat(arr[0]), parseFloat(arr[2]));
+            break;
+        case '-':
+            result = subtract(parseFloat(arr[0]), parseFloat(arr[2]));
+            break;
+        case '*':
+            result = multiply(parseFloat(arr[0]), parseFloat(arr[2]));
+            break;
+        case '/':
+            result = divide(parseFloat(arr[0]), parseFloat(arr[2]));
+            break;
+    } 
+}
+
 // listeners
 
 clearButton.addEventListener('click', clear);
