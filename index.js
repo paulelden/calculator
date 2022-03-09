@@ -25,7 +25,7 @@ const divideButton = document.getElementById('divideButton');
 const enterButton = document.getElementById('enterButton');
 const display = document.getElementById('display');
 
-display.textContent = '0';
+display.textContent = '1.75 / 2';
 
 // functions
 
@@ -205,11 +205,10 @@ function operate(){
             }
             else{
                 result = divide(parseFloat(arr[0]), parseFloat(arr[2]));
-            }
-            
+            }  
             break;
     }
-    display.textContent = result;
+    display.textContent = "" + parseFloat(result.toFixed(10));
 }
 
 // listeners
