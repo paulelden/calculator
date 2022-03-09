@@ -27,9 +27,6 @@ const display = document.getElementById('display');
 
 display.textContent = '0';
 
-let val1 = 0;
-let val2 = 0;
-
 // functions
 
 function add(a,b) {
@@ -203,9 +200,16 @@ function operate(){
             result = multiply(parseFloat(arr[0]), parseFloat(arr[2]));
             break;
         case '/':
-            result = divide(parseFloat(arr[0]), parseFloat(arr[2]));
+            if(arr[2] === '0'){
+                alert("Try again! Cannot divide by zero.")
+            }
+            else{
+                result = divide(parseFloat(arr[0]), parseFloat(arr[2]));
+            }
+            
             break;
-    } 
+    }
+    display.textContent = result;
 }
 
 // listeners
@@ -225,4 +229,4 @@ sevenButton.addEventListener('click', seven);
 eightButton.addEventListener('click', eight);
 nineButton.addEventListener('click', nine);
 
-
+enterButton.addEventListener('click', operate);
