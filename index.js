@@ -27,10 +27,11 @@ const display = document.getElementById('display');
 
 const operators = ['+', '-', '*', '/'];
 
-display.textContent = '1.75 / 2';
+display.textContent = '0';
 
 // functions
 
+// operation functions
 function add(a,b) {
     return (a + b);
 }
@@ -47,6 +48,8 @@ function divide(a,b) {
     return (a / b);
 }
 
+// the below functions edit the display, either adding the number it is assigned to, the decimal, or removing
+// text from the display.
 function clear() {
    display.textContent = '0';
 }
@@ -188,13 +191,13 @@ function nine() {
     }
 }
 
-function operate(){
-    let result;
+function operate(){     // operate() creates an array of strings from display.textContent,
+    let result;         // converts them to an expression and calculates it, then returns the result as a number
     let arr = display.textContent.split(" ");
     switch (arr[1]) {
         case '+':
-            result = add(parseFloat(arr[0]), parseFloat(arr[2]));
-            break;
+            result = add(parseFloat(arr[0]), parseFloat(arr[2])); // parseFloat converts the string object to a float 
+            break;                                                // so that we can calculate
         case '-':
             result = subtract(parseFloat(arr[0]), parseFloat(arr[2]));
             break;
@@ -202,7 +205,7 @@ function operate(){
             result = multiply(parseFloat(arr[0]), parseFloat(arr[2]));
             break;
         case '/':
-            if(arr[2] === '0'){
+            if(arr[2] === '0'){     // making sure the user can't break the calculator
                 alert("Try again! Cannot divide by zero.")
             }
             else{
@@ -210,22 +213,40 @@ function operate(){
             }  
             break;
     }
-    result = "" + parseFloat(result.toFixed(10));
-    return result;
+    result = "" + parseFloat(result.toFixed(10)); // convert back to string to inject into 
+    return result;                                // textContent  
 }
 
-function putPlus() {
-    if (display.textContent.includes('+' || '-' || '*' || '/')){
-        enterButton.click();
-        display.textContent += " + ";
-    }
+// all four of the below functions first checks for an operator in the display. if there is one, it runs operate()
+// on the existing display contents, then adds the given operator to the string. if there is none, it just adds the
+// operator to the display
+function putPlus() {  
+    let char = display.textContent.slice(-2);   
+    if (display.textContent.includes('+') ||
+        display.textContent.includes('-') ||
+        display.textContent.includes('*') ||
+        display.textContent.includes('/')){
+            if (char == '+' ||
+                char == '-' ||
+                char == '*' ||
+                char == '/') {
+                    // pass
+            }
+            else {
+                enterButton.click();
+                display.textContent += " + ";
+            }
+        }
     else {
         display.textContent += " + ";
-    }
+    }  
 }
 
 function putMinus() {
-    if (display.textContent.includes('+' || '-' || '*' || '/')){
+    if (display.textContent.includes('+') ||
+        display.textContent.includes('-') ||
+        display.textContent.includes('*') ||
+        display.textContent.includes('/')){
         enterButton.click();
         display.textContent += " - ";
     }
@@ -235,7 +256,10 @@ function putMinus() {
 }
 
 function putSlash() {
-    if (display.textContent.includes('+' || '-' || '*' || '/')){
+    if (display.textContent.includes('+') ||
+        display.textContent.includes('-') ||
+        display.textContent.includes('*') ||
+        display.textContent.includes('/')){
         enterButton.click();
         display.textContent += " / ";
     }
@@ -245,7 +269,10 @@ function putSlash() {
 }
 
 function putStar() {
-    if (display.textContent.includes('+' || '-' || '*' || '/')){
+    if (display.textContent.includes('+') ||
+        display.textContent.includes('-') ||
+        display.textContent.includes('*') ||
+        display.textContent.includes('/')){
         enterButton.click();
         display.textContent += " * ";
     }

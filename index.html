@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="./index.css">
 </head>
 <body>
-    <div id="header">CALCULATOR</div>
+    <div id="header"></div>
     <div id="display"></div> 
     <div id="container">
         <div id="left">
@@ -40,7 +40,14 @@
         </div>
     </div>
     <div id="footer">
-        <span>by Paul Elden &nbsp;&nbsp;&nbsp;// &nbsp;&nbsp;&nbsp;<a href="https://github.com/paulelden/calculator">code on GitHub</a></span>
+        <span id="foot1">by Paul Elden &nbsp;&nbsp;&nbsp;// &nbsp;&nbsp;&nbsp;<a href="https://github.com/paulelden/calculator">code on GitHub</a></span>
+        <span id="foot2">please note there is no keyboard support (sorry!)</span>
     </div>
 </body>
 </html>
+
+
+<!-- need to fix NaN, Zack suggested a flag to add/remove the operator button event listeners. I
+would need to flag based on if the slice(-2) is an operator, turn off the listeners on the
+operator buttons -->
+
