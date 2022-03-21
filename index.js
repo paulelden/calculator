@@ -226,10 +226,10 @@ function putPlus() {
         display.textContent.includes('-') ||
         display.textContent.includes('*') ||
         display.textContent.includes('/')){
-            if (char == '+' ||
-                char == '-' ||
-                char == '*' ||
-                char == '/') {
+            if (char.includes('+') ||
+                char.includes('-') ||
+                char.includes('*') ||
+                char.includes('/')) {
                     // pass
             }
             else {
@@ -243,42 +243,69 @@ function putPlus() {
 }
 
 function putMinus() {
+    let char = display.textContent.slice(-2);   
     if (display.textContent.includes('+') ||
         display.textContent.includes('-') ||
         display.textContent.includes('*') ||
         display.textContent.includes('/')){
-        enterButton.click();
-        display.textContent += " - ";
-    }
+            if (char.includes('+') ||
+                char.includes('-') ||
+                char.includes('*') ||
+                char.includes('/')) {
+                    display.textContent[-2] = '-';
+            }
+            else {
+                enterButton.click();
+                display.textContent += " - ";
+            }
+        }
     else {
         display.textContent += " - ";
-    }
+    }  
 }
 
 function putSlash() {
+    let char = display.textContent.slice(-2);   
     if (display.textContent.includes('+') ||
         display.textContent.includes('-') ||
         display.textContent.includes('*') ||
         display.textContent.includes('/')){
-        enterButton.click();
-        display.textContent += " / ";
-    }
+            if (char.includes('+') ||
+                char.includes('-') ||
+                char.includes('*') ||
+                char.includes('/')) {
+                    // pass
+            }
+            else {
+                enterButton.click();
+                display.textContent += " / ";
+            }
+        }
     else {
         display.textContent += " / ";
-    }
+    }  
 }
 
 function putStar() {
+    let char = display.textContent.slice(-2);   
     if (display.textContent.includes('+') ||
         display.textContent.includes('-') ||
         display.textContent.includes('*') ||
         display.textContent.includes('/')){
-        enterButton.click();
-        display.textContent += " * ";
-    }
+            if (char.includes('+') ||
+                char.includes('-') ||
+                char.includes('*') ||
+                char.includes('/')) {
+                    // pass
+            }
+            else {
+                enterButton.click();
+                display.textContent += " * ";
+            }
+        }
     else {
         display.textContent += " * ";
-    }
+    }  
 }
 
 // listeners
@@ -298,11 +325,10 @@ sevenButton.addEventListener('click', seven);
 eightButton.addEventListener('click', eight);
 nineButton.addEventListener('click', nine);
 
-enterButton.addEventListener('click', function(){
-    display.textContent = operate();
-});
-
 addButton.addEventListener('click', putPlus);
 subtractButton.addEventListener('click', putMinus);
 multiplyButton.addEventListener('click', putStar);
 divideButton.addEventListener('click', putSlash);
+enterButton.addEventListener('click', function(){
+    display.textContent = operate();
+});
