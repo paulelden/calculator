@@ -217,7 +217,7 @@ function operate(){     // operate() creates an array of strings from display.te
     return result;                                // textContent  
 }
 
-// all four of the below functions first checks for an operator in the display. if there is one, it runs operate()
+// all four of the below functions first check for an operator in the display. if there is one, it runs operate()
 // on the existing display contents, then adds the given operator to the string. if there is none, it just adds the
 // operator to the display
 function putPlus() {  
@@ -230,7 +230,7 @@ function putPlus() {
                 char.includes('-') ||
                 char.includes('*') ||
                 char.includes('/')) {
-                    // pass
+                    display.textContent = display.textContent.slice(0,-3) + " + ";
             }
             else {
                 enterButton.click();
@@ -252,7 +252,7 @@ function putMinus() {
                 char.includes('-') ||
                 char.includes('*') ||
                 char.includes('/')) {
-                    display.textContent[-2] = '-';
+                    display.textContent = display.textContent.slice(0,-3) + " - ";
             }
             else {
                 enterButton.click();
@@ -274,7 +274,7 @@ function putSlash() {
                 char.includes('-') ||
                 char.includes('*') ||
                 char.includes('/')) {
-                    // pass
+                    display.textContent = display.textContent.slice(0,-3) + " / ";
             }
             else {
                 enterButton.click();
@@ -296,7 +296,7 @@ function putStar() {
                 char.includes('-') ||
                 char.includes('*') ||
                 char.includes('/')) {
-                    // pass
+                    display.textContent = display.textContent.slice(0,-3) + " * ";
             }
             else {
                 enterButton.click();

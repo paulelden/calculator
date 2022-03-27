@@ -115,17 +115,6 @@ a {
     width: 25%;
 }
 
-#subtractButton {
-}
-
-#addButton {
-
-}
-
-#enterButton {
-
-}
-
 #footer {
     display: flex;
     flex-direction: column;
